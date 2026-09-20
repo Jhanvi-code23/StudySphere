@@ -22,7 +22,7 @@ const studyResources = [
         notes: [
           {
             title: "HTML Complete Notes",
-            file: "StudySphere\\public\\pdfs\\HTML_Handwritten_Exam_Notes (1).pdf"
+            file: "/pdfs/HTML_Handwritten_Exam_Notes%20(1).pdf"
           }
         ],
 
@@ -67,7 +67,7 @@ const studyResources = [
         notes: [
           {
             title: "CSS Complete Notes",
-            file: "StudySphere\\public\\pdfs\\CSS Notes.pdf"
+            file: "/pdfs/CSS%20Notes.pdf"
           }
         ],
 
@@ -108,7 +108,7 @@ const studyResources = [
         notes: [
           {
             title: "JavaScript Complete Notes",
-            file: "StudySphere\\public\\pdfs\\Javascript Complete Notes.pdf"
+            file: "/pdfs/Javascript%20Complete%20Notes.pdf"
           }
         ],
 
@@ -159,7 +159,7 @@ const studyResources = [
         notes: [
           {
             title: "React Notes",
-            file: "StudySphere\\public\\pdfs\\React-Handwritten-notes.pdf"
+            file: "/pdfs/React-Handwritten-notes.pdf"
           }
         ],
 
@@ -206,7 +206,7 @@ const studyResources = [
         notes: [
           {
             title: "Arrays Notes",
-            file: "pdfs/Array Notes by Divyanshu Shukla.pdf"
+            file: "/pdfs/Array%20Notes%20by%20Divyanshu%20Shukla.pdf"
           }
         ],
 
@@ -331,7 +331,7 @@ const studyResources = [
         notes: [
           {
             title: "SQL Notes",
-            file: "/pdfs/sql-notes.pdf"
+            file: "/pdfs/REVISION%20NOTES%20-SQL.pdf"
           }
         ],
 
@@ -377,7 +377,7 @@ const studyResources = [
         videos: [
           {
             title: "MySQL Tutorial",
-            url: "StudySphere\\public\\pdfs\\REVISION NOTES -SQL.pdf"
+            file: "/pdfs/REVISION%20NOTES%20-SQL.pdf"
           }
         ],
 

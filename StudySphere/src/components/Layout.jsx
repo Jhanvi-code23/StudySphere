@@ -1,21 +1,17 @@
 import Sidebar from "./Sidebar";
 
-function Layout({ children }) {
-
+function Layout({ children, currentPage, onNavigate }) {
   return (
-
     <div className="app-layout">
-
-      <Sidebar />
+      <Sidebar
+        currentPage={currentPage}
+        onNavigate={onNavigate}
+      />
 
       <main className="main-content">
-
         {children}
-
       </main>
-
     </div>
-
   );
 }
 

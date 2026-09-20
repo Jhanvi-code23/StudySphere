@@ -1,17 +1,10 @@
-function Sidebar() {
-
+function Sidebar({ currentPage, onNavigate }) {
   return (
     <aside className="sidebar">
 
-      {/* =========================
-          LOGO
-          ========================= */}
-
+      {/* LOGO */}
       <div className="sidebar-logo">
-
-        <div className="logo-icon">
-          🎓
-        </div>
+        <div className="logo-icon">🎓</div>
 
         <div>
           <h2>
@@ -20,74 +13,105 @@ function Sidebar() {
 
           <p>Learn • Plan • Achieve</p>
         </div>
-
       </div>
 
 
-      {/* =========================
-          MAIN NAVIGATION
-          ========================= */}
-
+      {/* NAVIGATION */}
       <nav className="sidebar-nav">
 
-        <p className="nav-heading">
-          MAIN
-        </p>
+        <p className="nav-heading">MAIN</p>
 
-        <button className="nav-item active">
+        <button
+          className={
+            currentPage === "dashboard"
+              ? "nav-item active"
+              : "nav-item"
+          }
+          onClick={() => onNavigate("dashboard")}
+        >
           <span>⌂</span>
           Dashboard
         </button>
 
-        <button className="nav-item">
+
+        <button
+          className={
+            currentPage === "resources"
+              ? "nav-item active"
+              : "nav-item"
+          }
+          onClick={() => onNavigate("resources")}
+        >
           <span>▣</span>
           Study Resources
         </button>
 
-        <button className="nav-item">
+
+        <button
+          className={
+            currentPage === "progress"
+              ? "nav-item active"
+              : "nav-item"
+          }
+          onClick={() => onNavigate("progress")}
+        >
           <span>◔</span>
           Progress
         </button>
 
-        <button className="nav-item">
+
+        <button
+          className="nav-item"
+          onClick={() => alert("Notes section coming next!")}
+        >
           <span>▤</span>
           Notes
         </button>
 
 
-        {/* =========================
-            UTILITIES
-            ========================= */}
-
+        {/* UTILITIES */}
         <p className="nav-heading utilities-heading">
           UTILITIES
         </p>
 
-        <button className="nav-item">
+
+        <button
+          className="nav-item"
+          onClick={() => window.location.href= "/WebDev-L2-ToDoList/index.html"}
+        >
           <span>✓</span>
-          TaskMate
+          CheckMate
         </button>
 
-        <button className="nav-item">
+
+        <button
+          className="nav-item"
+          onClick={() => alert("Calculator section coming next!")}
+        >
           <span>▦</span>
           Calculator
         </button>
 
-        <button className="nav-item">
+
+        <button
+          className="nav-item"
+          onClick={() => alert("Pomodoro section coming next!")}
+        >
           <span>◷</span>
           Pomodoro
         </button>
 
 
-        {/* =========================
-            ACCOUNT
-            ========================= */}
-
+        {/* ACCOUNT */}
         <p className="nav-heading utilities-heading">
           ACCOUNT
         </p>
 
-        <button className="nav-item">
+
+        <button
+          className="nav-item"
+          onClick={() => alert("Profile section coming next!")}
+        >
           <span>◉</span>
           Profile
         </button>
@@ -95,17 +119,15 @@ function Sidebar() {
       </nav>
 
 
-      {/* =========================
-          BOTTOM SECTION
-          ========================= */}
-
+      {/* LOGOUT */}
       <div className="sidebar-bottom">
-
-        <button className="logout-button">
+        <button
+          className="logout-button"
+          onClick={() => alert("Logout functionality coming later!")}
+        >
           <span>↪</span>
           Logout
         </button>
-
       </div>
 
     </aside>
