@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #0F0F14; /* StudySphere Body Background */
+  background-image: 
+    linear-gradient(#232633 1px, transparent 1px),
+    linear-gradient(90deg, #1d1f2a 1px, transparent 1px);
+  background-size: 40px 40px; /* Grid ka size yahan se adjust karein */
+  background-attachment: fixed;
+  margin: 0;
+}
+
+h3 {
+    text-align: center;
+    margin-top: 3%;
+    color: #9BABF5;
+    font-size: 3em;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.main-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+}
+
+.calculator {
+    background-color: #8599EE;
+    border: 2px solid #273262;
+    padding: 20px;
+    border-radius: 18px;
+    width: 400px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+#display {
+    width: 100%;
+    height: 75px;
+    margin-bottom: 20px;
+    border: 2px solid #273262;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 28px;
+    text-align: right;
+    outline: none;
+    background-color: #f8fafc;
+}
+
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+button {
+    height: 75px;
+    border: 2px solid #273262;
+    border-radius: 10px;
+    font-size: 28px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: scale(1.04);
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+.number {
+    background-color: #f3f4f6;
+}
+.number:hover {
+    background-color: #c8ccd2;
+}
+
+.operator {
+    background-color: #ffc561;
+    color: white;
+}
+.operator:hover {
+    background-color: #d97706;
+}
+
+#clear {
+    background-color: #ef4444;
+    color: white;
+}
+#clear:hover {
+    background-color: #b91c1c;
+}
+
+#backspace {
+    background-color: #6b7280;
+    color: white;
+}
+#backspace:hover {
+    background-color: #4b5563;
+}
+
+#equals {
+    background-color: #10b981;
+    color: white;
+
+    grid-row: span 2;
+    height: 162px;
+}
+#equals:hover {
+    background-color: #059669;
+}
+
+
+/* history box */
+#historyDisplay {
+    margin-top: 30%;
+    width: 250px;
+    height: 400px;
+    background-color: #dce2ff;
+    border: 2px solid #0e2e15;
+    border-radius: 10px;
+    padding: 30px;
+    font-size: 20px;
+    resize: none;
+    text-align: center;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+#historyDisplay::placeholder {
+    text-align: center;
+}
+
+
+/*responsive design*/
+
+@media (max-width: 1024px){
+
+    h3{
+        font-size:2.4rem;
+    }
+
+    .main-container{
+        gap:15px;
+        padding:20px;
+    }
+
+    .calculator{
+        width:360px;
+    }
+
+    #historyDisplay{
+        width:220px;
+        height:360px;
+        margin-top:25%;
+        font-size:18px;
+    }
+}
+
+@media (max-width: 768px){
+
+    body{
+        height:auto;
+        padding:30px 15px;
+    }
+
+    h3{
+        font-size:2rem;
+        margin-top:20px;
+    }
+
+    .main-container{
+        flex-direction:column-reverse;
+        align-items:center;
+        gap:20px;
+    }
+
+    .calculator{
+        width:100%;
+        max-width:400px;
+    }
+
+    #historyDisplay{
+        width:100%;
+        max-width:400px;
+        height:180px;
+        margin-top:0;
+        padding:20px;
+    }
+
+    button{
+        height:65px;
+        font-size:24px;
+    }
+
+    #display{
+        height:65px;
+        font-size:24px;
+    }
+
+    #equals{
+        height:142px;
+    }
+}
+
+@media (max-width:480px){
+
+    h3{
+        font-size:1.6rem;
+    }
+
+    .calculator{
+        padding:15px;
+    }
+
+    .buttons{
+        gap:8px;
+    }
+
+    button{
+        height:55px;
+        font-size:20px;
+    }
+
+    #display{
+        height:55px;
+        font-size:20px;
+    }
+
+    #equals{
+        height:118px;
+    }
+
+    #historyDisplay{
+        height:150px;
+        font-size:16px;
+        padding:15px;
+    }
+}

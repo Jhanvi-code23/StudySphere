@@ -85,12 +85,14 @@ function Sidebar({ currentPage, onNavigate }) {
 
 
         <button
-          className="nav-item"
-          onClick={() => alert("Calculator section coming next!")}
-        >
-          <span>▦</span>
-          Calculator
-        </button>
+  className="nav-item"
+  onClick={() => {
+    window.location.href = "/WebDev-L2-Calculator/index.html";
+  }}
+>
+  <span>▣</span>
+  Calculator
+</button>
 
 
         <button

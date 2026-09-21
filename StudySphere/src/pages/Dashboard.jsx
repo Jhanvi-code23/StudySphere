@@ -195,58 +195,6 @@ function Dashboard() {
           </div>
         </div>
       </section>
-
-      {/* =====================================
-          QUICK TOOLS
-          ===================================== */}
-      <section className="quick-tools-section">
-        <div className="section-heading">
-          <div>
-            <h2>Quick Tools</h2>
-            <p>Useful tools for your study sessions.</p>
-          </div>
-        </div>
-
-        <div className="quick-tools-grid">
-          {/* CORRECTED ONCLICK HANDLER */}
-          <button
-            className="quick-tool"
-            onClick={() =>
-              (window.location.href = "/WebDev-L2-ToDoList/index.html")
-            }
-          >
-            <div className="tool-icon">✓</div>
-            <div>
-              <strong>CheckMate</strong>
-              <span>Manage your tasks</span>
-            </div>
-          </button>
-
-          <button className="quick-tool">
-            <div className="tool-icon">+</div>
-            <div>
-              <strong>Calculator</strong>
-              <span>Quick calculations</span>
-            </div>
-          </button>
-
-          <button className="quick-tool">
-            <div className="tool-icon">◷</div>
-            <div>
-              <strong>Pomodoro</strong>
-              <span>Focus sessions</span>
-            </div>
-          </button>
-
-          <button className="quick-tool">
-            <div className="tool-icon">▤</div>
-            <div>
-              <strong>Notes</strong>
-              <span>Write something down</span>
-            </div>
-          </button>
-        </div>
-      </section>
     </div>
   );
 }
