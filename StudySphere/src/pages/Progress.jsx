@@ -1,17 +1,44 @@
+import { useState, useEffect } from "react";
 import studyResources from "../data/studyResources";
+import { getUserData } from "../utils/userStorage";
 
 function Progress() {
+
+  const [progressVersion, setProgressVersion] = useState(0);
+
+  useEffect(() => {
+
+    const handleProgressUpdate = () => {
+      setProgressVersion((prev) => prev + 1);
+    };
+
+    window.addEventListener(
+      "progressUpdated",
+      handleProgressUpdate
+    );
+
+    return () => {
+      window.removeEventListener(
+        "progressUpdated",
+        handleProgressUpdate
+      );
+    };
+
+  }, []);
+
 
   // Get the latest progress of a topic
   const getTopicProgress = (topic) => {
 
-    const savedTopics = localStorage.getItem(
-      `progress-${topic.id}`
-    );
+    const initialTopics = topic.topicsCovered.map((item) => ({
+      ...item,
+      completed: false,
+    }));
 
-    const topics = savedTopics
-      ? JSON.parse(savedTopics)
-      : topic.topicsCovered;
+    const topics = getUserData(
+      `progress-${topic.id}`,
+      initialTopics
+    );
 
     const completed = topics.filter(
       (item) => item.completed
@@ -232,97 +259,8 @@ function Progress() {
 
       </section>
 
-
-      {/* =========================
-          TOPIC-WISE PROGRESS
-      ========================= */}
-
-      <section className="progress-section">
-
-        <div className="section-heading">
-
-          <div>
-
-            <h2>Topic Progress</h2>
-
-            <p>
-              Detailed progress for each topic.
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <div className="topic-progress-list">
-
-          {studyResources.map((category) => (
-
-            <div
-              className="progress-category"
-              key={category.id}
-            >
-
-              <div className="progress-category-heading">
-
-                <span>
-                  {category.category}
-                </span>
-
-              </div>
-
-
-              {category.topics.map((topic) => {
-
-                const topicProgress =
-                  getTopicProgress(topic);
-
-                return (
-
-                  <div
-                    className="progress-topic-row"
-                    key={topic.id}
-                  >
-
-                    <div className="progress-topic-info">
-
-                      <span>
-                        {topic.name}
-                      </span>
-
-                      <strong>
-                        {topicProgress.progress}%
-                      </strong>
-
-                    </div>
-
-
-                    <div className="progress-track">
-
-                      <div
-                        className="progress-fill"
-                        style={{
-                          width: `${topicProgress.progress}%`
-                        }}
-                      />
-
-                    </div>
-
-                  </div>
-
-                );
-
-              })}
-
-            </div>
-
-          ))}
-
-        </div>
-
-      </section>
-
     </div>
+    
   );
 }
 

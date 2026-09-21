@@ -22,12 +22,28 @@ const donutChart = document.querySelector(".donut-chart");
 
 
 
-//add task- working: user types a task in the input field and clicks the add button, the task is added to the pending list and the input field is cleared.
-let tasks = JSON.parse(localStorage.getItem("tasks")) || []; //storing the tasks in local storage so that they persist even after the page is refreshed
+// Get the currently logged-in StudySphere user
+const currentSession = JSON.parse(
+    localStorage.getItem("currentSession")
+);
+
+// Create a separate task storage key for each user
+const taskStorageKey = currentSession
+    ? `studySphere-${currentSession.email || currentSession.username}-tasks`
+    : "tasks";
+
+// Load tasks for the current user
+let tasks = JSON.parse(
+    localStorage.getItem(taskStorageKey)
+) || [];
 
 
-function saveTasks(){ //function to save the tasks in local storage
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+// Save tasks for the current user
+function saveTasks(){
+    localStorage.setItem(
+        taskStorageKey,
+        JSON.stringify(tasks)
+    );
 }
 
 addBtn.addEventListener("click", addTask); //adding a click event listener to the add button

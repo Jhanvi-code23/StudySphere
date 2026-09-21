@@ -1,27 +1,33 @@
 import { useEffect, useState } from "react";
+import { getUserData, setUserData } from "../utils/userStorage";
 
 function TopicDetail({ topic, onBack }) {
 
   // Store topic completion state
   const [topics, setTopics] = useState(() => {
 
-    const savedTopics = localStorage.getItem(
-      `progress-${topic.id}`
+    const initialTopics = topic.topicsCovered.map((item) => ({
+      ...item,
+      completed: false,
+    }));
+
+    return getUserData(
+      `progress-${topic.id}`,
+      initialTopics
     );
-
-    return savedTopics
-      ? JSON.parse(savedTopics)
-      : topic.topicsCovered;
-
   });
 
 
-  // Save progress in localStorage
+  // Save progress for the current user
   useEffect(() => {
 
-    localStorage.setItem(
+    setUserData(
       `progress-${topic.id}`,
-      JSON.stringify(topics)
+      topics
+    );
+
+    window.dispatchEvent(
+      new Event("progressUpdated")
     );
 
   }, [topics, topic.id]);
@@ -36,9 +42,11 @@ function TopicDetail({ topic, onBack }) {
 
 
   // Calculate progress percentage
-  const progress = Math.round(
-    (completedCount / totalCount) * 100
-  );
+  const progress = totalCount
+    ? Math.round(
+        (completedCount / totalCount) * 100
+      )
+    : 0;
 
 
   // Toggle topic completion
@@ -118,7 +126,6 @@ function TopicDetail({ topic, onBack }) {
       {/* =========================
           01 — TOPICS COVERED
       ========================= */}
-
       <section className="detail-section">
 
         <div className="detail-section-title">
@@ -168,83 +175,83 @@ function TopicDetail({ topic, onBack }) {
 
       <section className="detail-section">
 
-  <div className="detail-section-title">
+        <div className="detail-section-title">
 
-    <span>02</span>
+          <span>02</span>
 
-    <div>
-      <h2>Notes</h2>
-      <p>Quick reference material for this topic.</p>
-    </div>
-
-  </div>
-
-
-  <div className="notes-preview-grid">
-
-    {topic.notes.map((note, index) => (
-
-      <div
-        className="note-preview-card"
-        key={index}
-      >
-
-        <div className="note-preview-header">
-
-          <div className="material-left">
-
-            <div className="material-icon">
-              PDF
-            </div>
-
-            <div>
-              <h3>{note.title}</h3>
-              <p>PDF Notes</p>
-            </div>
-
+          <div>
+            <h2>Notes</h2>
+            <p>Quick reference material for this topic.</p>
           </div>
 
-          <span className="note-type">
-            PDF
-          </span>
-
         </div>
 
 
-        <div className="pdf-preview">
+        <div className="notes-preview-grid">
 
-          <iframe
-            src={`${note.file}#toolbar=0&navpanes=0&scrollbar=0`}
-            title={note.title}
-          />
+          {topic.notes.map((note, index) => (
+
+            <div
+              className="note-preview-card"
+              key={index}
+            >
+
+              <div className="note-preview-header">
+
+                <div className="material-left">
+
+                  <div className="material-icon">
+                    PDF
+                  </div>
+
+                  <div>
+                    <h3>{note.title}</h3>
+                    <p>PDF Notes</p>
+                  </div>
+
+                </div>
+
+                <span className="note-type">
+                  PDF
+                </span>
+
+              </div>
+
+
+              <div className="pdf-preview">
+
+                <iframe
+                  src={`${note.file}#toolbar=0&navpanes=0&scrollbar=0`}
+                  title={note.title}
+                />
+
+              </div>
+
+
+              <div className="note-preview-footer">
+
+                <span>
+                  Quick reference material
+                </span>
+
+                <a
+                  href={note.file}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="material-link"
+                >
+                  Open Full PDF →
+                </a>
+
+              </div>
+
+            </div>
+
+          ))}
 
         </div>
 
-
-        <div className="note-preview-footer">
-
-          <span>
-            Quick reference material
-          </span>
-
-          <a
-            href={note.file}
-            target="_blank"
-            rel="noreferrer"
-            className="material-link"
-          >
-            Open Full PDF →
-          </a>
-
-        </div>
-
-      </div>
-
-    ))}
-
-  </div>
-
-</section>
+      </section>
 
 
       {/* =========================

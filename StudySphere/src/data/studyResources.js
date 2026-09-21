@@ -7,8 +7,8 @@ const studyResources = [
       {
         id: "html",
         name: "HTML",
-        description: "Learn the structure and semantic elements used to build webpages.",
-        progress: 40,
+        description:
+          "Learn the structure and semantic elements used to build webpages.",
 
         topicsCovered: [
           { id: 1, title: "HTML Basics", completed: true },
@@ -52,8 +52,8 @@ const studyResources = [
       {
         id: "css",
         name: "CSS",
-        description: "Learn styling, layouts, responsive design and modern CSS.",
-        progress: 55,
+        description:
+          "Learn styling, layouts, responsive design and modern CSS.",
 
         topicsCovered: [
           { id: 1, title: "CSS Basics", completed: true },
@@ -93,7 +93,6 @@ const studyResources = [
         name: "JavaScript",
         description:
           "Learn JavaScript fundamentals, DOM manipulation and modern ES6 concepts.",
-        progress: 60,
 
         topicsCovered: [
           { id: 1, title: "Variables & Data Types", completed: true },
@@ -144,7 +143,6 @@ const studyResources = [
         name: "React",
         description:
           "Learn component-based UI development using React and modern hooks.",
-        progress: 30,
 
         topicsCovered: [
           { id: 1, title: "React Basics", completed: true },
@@ -192,7 +190,6 @@ const studyResources = [
         name: "Arrays",
         description:
           "Learn array traversal, searching, sorting and common problem-solving patterns.",
-        progress: 45,
 
         topicsCovered: [
           { id: 1, title: "Array Basics", completed: true },
@@ -232,7 +229,6 @@ const studyResources = [
         name: "Strings",
         description:
           "Learn string manipulation and common string-based problem solving techniques.",
-        progress: 25,
 
         topicsCovered: [
           { id: 1, title: "String Basics", completed: true },
@@ -271,7 +267,6 @@ const studyResources = [
         name: "Hashing",
         description:
           "Understand HashMap, HashSet and frequency-based problem solving.",
-        progress: 20,
 
         topicsCovered: [
           { id: 1, title: "Hashing Basics", completed: true },
@@ -317,7 +312,6 @@ const studyResources = [
         name: "SQL",
         description:
           "Learn queries, filtering, joins, grouping and database operations.",
-        progress: 35,
 
         topicsCovered: [
           { id: 1, title: "SQL Basics", completed: true },
@@ -357,7 +351,6 @@ const studyResources = [
         name: "MySQL",
         description:
           "Learn relational database management using MySQL.",
-        progress: 25,
 
         topicsCovered: [
           { id: 1, title: "MySQL Basics", completed: true },
@@ -403,7 +396,6 @@ const studyResources = [
         name: "Java",
         description:
           "Learn Java programming fundamentals and object-oriented concepts.",
-        progress: 40,
 
         topicsCovered: [
           { id: 1, title: "Java Basics", completed: true },
@@ -443,7 +435,6 @@ const studyResources = [
         name: "OOP",
         description:
           "Understand object-oriented programming concepts using Java.",
-        progress: 30,
 
         topicsCovered: [
           { id: 1, title: "Classes & Objects", completed: true },

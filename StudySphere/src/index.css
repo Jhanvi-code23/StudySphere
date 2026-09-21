@@ -404,12 +404,10 @@ a {
 
 .dashboard-grid {
   display: grid;
-
   grid-template-columns: 1.4fr 1fr;
-
   gap: 18px;
-
   margin-bottom: 25px;
+
 }
 
 
@@ -419,11 +417,8 @@ a {
 
 .dashboard-card {
   background: #181B22;
-
   border: 1px solid #3A4368;
-
   border-radius: 14px;
-
   padding: 22px;
 }
 
@@ -474,15 +469,14 @@ a {
 
 .learning-list {
   display: flex;
-
   flex-direction: column;
-
   gap: 22px;
+  max-height:250px;
+  overflow-y: auto;
 }
 
 .learning-item {
   width: 100%;
-  height: 60%;
 }
 
 .learning-info {
@@ -505,23 +499,16 @@ a {
 
 .progress-track {
   width: 100%;
-
   height: 6px;
-
   background: #2A2D39;
-
   border-radius: 10px;
-
   overflow: hidden;
 }
 
 .progress-fill {
   height: 100%;
-
   background: #6D28D9;
-
   border-radius: 10px;
-
   transition: width 0.4s ease;
 }
 
@@ -532,10 +519,10 @@ a {
 
 .today-task-list {
   display: flex;
-
   flex-direction: column;
-
   gap: 10px;
+  max-height: 250px;
+  overflow-y: auto;
 }
 
 .today-task {
@@ -1279,6 +1266,11 @@ a {
 /* =========================
    CATEGORY CARDS
 ========================= */
+.section-heading h2 {
+  color: #FFF5E8;
+  font-size: 22px;
+  margin-bottom: 5px;
+}
 
 .category-progress-grid {
   display: grid;
@@ -1290,7 +1282,7 @@ a {
   background: #181B22;
   border: 1px solid #2A2D39;
   border-radius: 10px;
-  padding: 18px;
+  padding: 22px;
   transition: 0.2s;
 }
 
@@ -1407,4 +1399,236 @@ a {
   color: #777B88;
   font-size: 12px;
   padding: 10px 0;
+}
+
+
+
+/* =========================
+   POMODORO FLOATING WIDGET
+========================= */
+
+.pomodoro-widget {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  width: 280px;
+  padding: 18px;
+  background: #181A22;
+  border: 1px solid #2A2D39;
+  border-radius: 14px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+  z-index: 9999;
+  box-sizing: border-box;
+}
+
+.pomodoro-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.pomodoro-label {
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  color: #8599EE;
+  font-weight: bold;
+}
+
+.pomodoro-header h3 {
+  margin: 4px 0 0;
+  color: #FFF5E8;
+  font-size: 18px;
+}
+
+.pomodoro-close {
+  border: none;
+  background: transparent;
+  color: #9BABF5;
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.pomodoro-close:hover {
+  color: #FFFFFF;
+}
+
+.pomodoro-time {
+  text-align: center;
+  font-size: 42px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #F4F4F7;
+  margin: 20px 0;
+}
+
+.pomodoro-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.pomodoro-controls button {
+  flex: 1;
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-family: Verdana, sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.pomodoro-start {
+  border: none;
+  background: #6D28D9;
+  color: white;
+}
+
+.pomodoro-start:hover {
+  background: #5A21B6;
+}
+
+.pomodoro-reset {
+  border: 1px solid #3A4368;
+  background: #1C1F2A;
+  color: #9BABF5;
+}
+
+.pomodoro-reset:hover {
+  background: #2A2D39;
+}
+
+
+
+/* =========================
+   SIMPLE PROFILE
+========================= */
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: #181B22;
+  border: 1px solid #2A2D39;
+  border-radius: 14px;
+  padding: 22px;
+  margin-bottom: 24px;
+}
+
+.profile-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #6D28D9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.profile-main-info h2 {
+  margin: 0 0 6px;
+  color: #FFF5E8;
+  font-size: 20px;
+}
+
+.profile-main-info p {
+  margin: 0;
+  color: #9BABF5;
+  font-size: 13px;
+}
+
+.profile-section {
+  margin-bottom: 24px;
+}
+
+.profile-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  background: #181B22;
+  border: 1px solid #2A2D39;
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.profile-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.profile-field label {
+  color: #8599EE;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.profile-field p {
+  margin: 0;
+  padding: 11px 12px;
+  min-height: 18px;
+  background: #1C1F2A;
+  border: 1px solid #2A2D39;
+  border-radius: 8px;
+  color: #F4F4F7;
+  font-size: 13px;
+}
+
+.profile-field input,
+.profile-field select {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 11px 12px;
+  background: #1C1F2A;
+  border: 1px solid #3A4368;
+  border-radius: 8px;
+  outline: none;
+  color: #F4F4F7;
+  font-family: Verdana, sans-serif;
+  font-size: 13px;
+}
+
+.profile-field input:focus,
+.profile-field select:focus {
+  border-color: #6D28D9;
+}
+
+.profile-field select option {
+  background: #181B22;
+  color: #F4F4F7;
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.profile-actions button {
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-family: Verdana, sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.profile-edit-button,
+.profile-save-button {
+  border: none;
+  background: #6D28D9;
+  color: white;
+}
+
+.profile-edit-button:hover,
+.profile-save-button:hover {
+  background: #5A21B6;
+}
+
+.profile-cancel-button {
+  border: 1px solid #3A4368;
+  background: #1C1F2A;
+  color: #9BABF5;
 }

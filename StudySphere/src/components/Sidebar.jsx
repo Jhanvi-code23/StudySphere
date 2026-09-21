@@ -1,5 +1,5 @@
-function Sidebar({ currentPage, onNavigate }) {
-  return (
+function Sidebar({currentPage, onNavigate, onPomodoroToggle, onLogout}) {
+    return (
     <aside className="sidebar">
 
       {/* LOGO */}
@@ -60,15 +60,6 @@ function Sidebar({ currentPage, onNavigate }) {
         </button>
 
 
-        <button
-          className="nav-item"
-          onClick={() => alert("Notes section coming next!")}
-        >
-          <span>▤</span>
-          Notes
-        </button>
-
-
         {/* UTILITIES */}
         <p className="nav-heading utilities-heading">
           UTILITIES
@@ -94,14 +85,13 @@ function Sidebar({ currentPage, onNavigate }) {
   Calculator
 </button>
 
-
-        <button
-          className="nav-item"
-          onClick={() => alert("Pomodoro section coming next!")}
-        >
-          <span>◷</span>
-          Pomodoro
-        </button>
+<button
+  className="nav-item"
+  onClick={onPomodoroToggle}
+>
+  <span>◷</span>
+  Pomodoro
+</button>
 
 
         {/* ACCOUNT */}
@@ -111,12 +101,16 @@ function Sidebar({ currentPage, onNavigate }) {
 
 
         <button
-          className="nav-item"
-          onClick={() => alert("Profile section coming next!")}
-        >
-          <span>◉</span>
-          Profile
-        </button>
+  className={
+    currentPage === "profile"
+      ? "nav-item active"
+      : "nav-item"
+  }
+  onClick={() => onNavigate("profile")}
+>
+  <span>◉</span>
+  Profile
+</button>
 
       </nav>
 
@@ -124,12 +118,12 @@ function Sidebar({ currentPage, onNavigate }) {
       {/* LOGOUT */}
       <div className="sidebar-bottom">
         <button
-          className="logout-button"
-          onClick={() => alert("Logout functionality coming later!")}
-        >
-          <span>↪</span>
-          Logout
-        </button>
+  className="logout-button"
+  onClick={onLogout}
+>
+  <span>↪</span>
+  Logout
+</button>
       </div>
 
     </aside>
